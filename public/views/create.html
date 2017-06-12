@@ -1,0 +1,31 @@
+	        <!-- heading section -->
+		<div class="boxH text-center">
+			<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10">
+				<h3>{{create.heading}}</h3>
+			</div>
+		</div>
+		<section  class="boxP">
+                <form class="createform" id="form1" name="createForm" class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10" >
+                        <fieldset>
+                                <label>Title </label>
+                                <input submit-required="true" type="text" required="true" name="title" ng-model="create.queryTitle" placeholder="Title of your query"><br>
+                                <label>Details </label>
+                                <textarea submit-required="true" type="text" name="datails" ng-model="create.queryDetails" placeholder="Details of query" required="true"></textarea>
+                                <br>
+                                <button ng-disabled = "createForm.$invalid" ng-click="create.createQuery()" type="submit" class="btn btn-primary">File Upload</button>
+                                <button ng-disabled = "createForm.$invalid" type="submit" ng-click="create.skipFile()" class="btn btn-primary" >Skip Upload and Create</button>
+                        </fieldset>
+
+                </form>
+
+                <form class="createform" ng-show="create.showUploadForm===1"  name="create.createForm" class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10" >
+                        <fieldset>
+                                <label>Any File Attachments</label>
+                                <input type="file" ngf-select ng-model="create.file" ngf-pattern="'*'" accept="*" ngf-max-size="20MB" name="file"><br>
+                                <button type="submit" ng-click="create.submit()" class="btn btn-primary " name="filesubmit">Upload</button>
+                                <button type="submit" ng-click="create.skip()" class=" btn btn-primary" >Skip Upload and Create</button>
+                        </fieldset>
+                </form>
+
+
+	</section>

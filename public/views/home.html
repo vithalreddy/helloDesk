@@ -1,0 +1,139 @@
+
+<!--Banner-->
+<div class="banner">
+  <div class="bg-color">
+    <div class="container">
+      <div class="row">
+        <div class="banner-text text-center">
+          <div class="text-border">
+            <h2 class="text-dec"><i class="fa fa-bookmark" aria-hidden="true"></i>  HELLO DESK - Ticket Based Support System  <i class="fa fa-bookmark" aria-hidden="true"></i></h2>
+          </div>
+          <div class="intro-para text-center quote">
+            <p class="big-text">You Got A Problem . . . No worries, We Will Solve It For You.</p>
+            <p class="small-text">A Single page MEAN stack application for Ticket based query support system with NodeJS Backend</p>
+            <a  class="btn get-quote" data-toggle="modal" data-target="#loginModal" ng-click="home.sign=1"  id="joinus"><b>Sign Up / Login</b></a>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Banner-->
+
+<!--Pricing-->
+<section id="pricing" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="header-section text-center">
+        <h2>know, How We Solve Your Queries</h2>
+        <p>A Single page MEAN stack application for Ticket based query support system with NodeJS Backend,<br> Solving Your  Queries at superFast Speed.</p>
+        <hr class="bottom-line">
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="price-table">
+          <!-- Plan  -->
+          <div class="pricing-head">
+            <h4>Raise Your Query Ticket</h4>
+            <span class="fa"></span> <span class="amount">ASK</span>
+          </div>
+
+          <!-- Plean Detail -->
+          <div class="price-in mart-15">
+            <a  class="btn btn-bg green btn-block">SOLVE</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="price-table">
+          <!-- Plan  -->
+          <div class="pricing-head">
+            <h4>Experts Will Solve</h4>
+            <span class="fa"></span> <span class="amount">DISCUSS</span>
+          </div>
+
+          <!-- Plean Detail -->
+          <div class="price-in mart-15">
+            <a  class="btn btn-bg yellow btn-block">PROBLEMS</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="price-table">
+          <!-- Plan  -->
+          <div class="pricing-head">
+            <h4>Your Problem Solved</h4>
+            <span class="fa"></span> <span class="amount">SOLVE</span>
+          </div>
+
+          <!-- Plean Detail -->
+          <div class="price-in mart-15">
+            <a  class="btn btn-bg red btn-block">SIMPLE WAY</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Pricing-->
+<!--Login/Signup Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login/Signup Form">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+            <button type="button" id="signupform"  class="col-lg-6 col-md-6 col-sm-6 col-xs-6 modal-title btn btn-default navbar-btn" ng-click='home.sign=1;home.log=0' >Sign Up</button>
+            <button class="col-lg-6 col-md-6 col-sm-6 col-xs-6 modal-title btn btn-default navbar-btn" id="Loginform" ng-click="home.log=1 ;home.sign=0" type="button" >Login</button>
+        </div>
+      </div>
+      <div class="modal-body" id="signup" ng-if="home.sign===1">
+        <form ng-submit="home.submitSign()">
+          <fieldset>
+              <legend>
+                  <h2>Primary Details</h2>
+              </legend>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" required="true" class="form-control login" name="name" ng-model="home.name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="mobile number">Mobile Number</label>
+                <input type="number" required="true" class="form-control login" ng-model="home.mobileNum" name="mobileNum" placeholder="Mobile Number ">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" required="true" name="email" class="form-control login" ng-model="home.email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" required="true" class="form-control login" ng-model="home.pass" name="pass" placeholder="Password">
+              </div>
+
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-body" ng-if="home.log===1" id="login">
+        <form ng-submit="home.submitLog()">
+          <fieldset>
+              <legend>
+                  <h2>Login Details</h2>
+              </legend>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" name="email" ng-model="home.email" class="form-control login" placeholder="Email" required="true">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control login" ng-model="home.pass" name="pass" placeholder="Password" required="true">
+              </div>
+          </fieldset>
+          <div class="text-center"><button type="submit" class="btn btn-primary">Login</button></div>
+        </form>
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" class="btn btn-primary" id="closebtn" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

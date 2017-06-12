@@ -1,0 +1,51 @@
+<div id="chatbox" ng-init = "single.username()">
+	<div class="container">
+		<div class="row">
+		    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8 text">
+		        <div id="info">
+		        	<div id="title">
+								<h2>Your Query Details:</h2>
+		        		Title: {{single.title}} <br>
+								Details: {{single.mDeatils}}<br><hr>
+		        	</div>
+		        	<br>
+		        	<div id="btnCangeStatus">
+		        		<button class="btn btn-primary btn-xs" ng-click = "single.openclose()">{{single.getStatus()}}</button><br><hr>
+								<a href="#" class="btn btn-primary" title="Previous Page" onclick="history.go(-1);event.preventDefault();">Go Back</a>
+		        	</div>
+		        </div>
+		    </div>
+			<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8 text">
+				<div id="messages" >
+					<ul ng-repeat="message in single.messages">
+						<li  ng-class = "{'message':{{message.sender !== 'Admin'}} , 'messageadmin': {{message.sender === 'Admin'}} }" id="scrollB">
+							<div class="row">
+								<div class="msgtext" >{{message.queryText}} </div>
+								<div class="datetime">{{message.createdAt | date: 'short'}}</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<form name="chatform" ng-submit="single.createMessage()">
+				<div class="container">
+					<div  id="form">
+						<div class="col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-6 col-sm-offset-2 col-sm-6 col-xs-offset-2 col-xs-6 text text-center">
+							<input id="chattext" type="text" name="queryText" ng-model="single.queryText">
+						</div>
+						<div id="sendButton"  class=" col-lg-2 col-md-2  col-sm-2  col-xs-2 text text-center">
+							<input id="sendbtn" type="submit" name="send" value="send">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+<hr><br><br>
+</div>
+<script type="text/javascript">// <![CDATA[
+function goBack() {
+       window.history.back();
+       return false;
+                }
+// ]]></script>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="helloDesk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title ng-controller="homeCtrl as home">Hello Desk - Your Queries Solving Hub</title>
+  <meta name="description" content="A Single page MEAN stack application for Ticket based query support system with NodeJS Backend">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- =======================================================
+        Theme Name: helloDesk
+        Author: https://vmrworld.com
+        Author URL: https://stackfame.com
+    ======================================================= -->
+</head>
+
+<body ng-class="{'modal-open': (index.logged()===0), 'nomodal': !(index.logged()===0)}">
+  <!--Navigation bar-->
+  <nav class="navbar navbar-default navbar-fixed-top" ng-controller='indexCtrl as index'>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ><i class="fa fa-chrome fa-spin fa-fw" aria-hidden="true"></i> Hello<span>Desk</span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="btn-trial"><a href="https://vithalreddy.github.io" target="_blank">Portfolio</a></li>
+          <!-- visible when not logged in -->
+          <li class="btn-trial" ng-model="index.logged" ng-if="index.logged()===0" data-toggle="modal" data-target="#loginModal"><a> Login / Sign Up</a></li>
+          <!-- visible when logged in -->
+          <button type="button" ng-if="index.logged() === 1" style="margin:7px" class="btn btn-logged btn-success dropdown-toggle" ng-init="index.getName()" id="logout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{index.user}}  <span class="caret"></span></button>
+
+          <ul ng-if="index.logged() === 1" class="dropdown-menu">
+            <li><a ng-click="index.logout()">Logout</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+  <a href="#/dashboard/{{userId}}" class="btn btn-block btn-primary btn-primary"><span class="glyphicon glyphicon-home"></span> Go To Homepage</a>
+  <!-- ng-view -->
+  <div class="container-fluid" id="view">
+    <div class="row">
+      <div class="wrapper ng-scope" ng-view ng-autoscroll="true">
+      </div>
+    </div>
+  </div>
+  <!-- ng-view -->
+
+  <!--Footer-->
+  <footer id="footer" class="footer">
+    <div class="container text-center">
+
+      <h3 style="color:white;">HELLO DESK - Ticket Based Support System</h3>
+
+      <ul class="social-links">
+        <li><a href="https://www.twitter.com/vithalreddy" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
+        <li><a href="https://www.facebook.com/vithalreddy.mb" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
+        <li><a href="https://plus.google.com/+VithalreddyMBV" target="_blank"><i class="fa fa-google-plus fa-fw"></i></a></li>
+        <li><a href="https://github.com/vithalreddy" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/vithalreddy" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+      </ul>
+      © Hello Desk - Your Problem Solving Hub
+      <div class="credits">
+        Designed by <a href="https://vmrworld.com/" target="_blank" title="VithalReddy.M.B"><span class="coder">VithalReddy.M.B</span></a>
+      </div>
+    </div>
+  </footer>
+  <!--/ Footer-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+
+  <!-- AngularJS Modules -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+  <!-- for no html5 browsers support -->
+  <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+  <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
+
+  <!-- angular scipts -->
+  <script type="text/javascript" src="angular/app.js"></script>
+  <script type="text/javascript" src="angular/routes/routes.js"></script>
+
+
+  <!-- ng Services -->
+  <script type="text/javascript" src="angular/services/queryService.js"></script>
+  <script type="text/javascript" src="angular/services/authService.js"></script>
+  <script type="text/javascript" src="angular/services/authInterceptorService.js"></script>
+
+  <!-- ng controllers -->
+  <script type="text/javascript" src="angular/controllers/home.js"></script>
+  <script type="text/javascript" src="angular/controllers/index.js"></script>
+  <script type="text/javascript" src="angular/controllers/create.js"></script>
+  <script type="text/javascript" src="angular/controllers/single.js"></script>
+  <script type="text/javascript" src="angular/controllers/dash.js"></script>
+
+
+</body>
+
+</html>

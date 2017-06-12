@@ -1,0 +1,11 @@
+<form  id="createForm" class="col-xs-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-lg-10" ng-submit="dashboard.createQuery()" name="createQuery">
+	<fieldset>
+		<label>Title :</label>
+		<input submit-required="true" type="text" required="true" name="title" ng-model="dashboard.queryTitle" placeholder="Title of your query">
+		<label>Details :</label>
+		<input submit-required="true" type="text" name="datails" ng-model="dashboard.queryDetails" placeholder="Details of query" required="true">
+		<label>Any File Attachments</label>
+		<input submit-required="true" type="file" name="file" required="true" ng-model="dashboard.file" placeholder="Attachments">
+	</fieldset>
+	<button ng-disabled="!createQuery.$valid" submit='dashboard.createQuery()' type="submit" class="btn btn-default btn-sm">Create</button>
+</form>

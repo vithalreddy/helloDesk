@@ -1,0 +1,83 @@
+<section class="Qbox text-center">
+	<br><br>
+    <h1>{{dashboard.heading}}</h1>
+  <br>
+  <br>
+  <div ng-if="dashboard.user !== 'Admin'">
+    <a href="#/create/{{dashboard.userId}}" class="btn btn-primary">Create New Query</a>
+  </div>
+
+  <!-- heading section -->
+  <div ng-if="dashboard.queries.length===0" class=" text-center">
+    <div  id="noquery">
+			<div >
+				<br>
+				<!-- Filter Buttons -->
+				<button class="btn btn-success " ng-click="dashboard.open()">Open Queries</button>
+				<button class="btn btn-success " ng-click="dashboard.close()">Closed Queries</button>
+				<button class="btn btn-success " ng-click="dashboard.all()">All Queries</button>
+				<br>
+				<br><hr>
+			</div>
+      <h2 class="text-center">No Queries Here</h2>
+    </div>
+  </div>
+
+
+  <div ng-if="dashboard.queries.length>0" class="container">
+    <!-- filter box -->
+		<hr><br>
+    <input class="form-control" id="filter" class="col-md-10" type="search" ng-model="search.$" placeholder="Filter Queries..." aria-label="Filter Queries" />
+
+    <div class="">
+      <br>
+      <!-- Filter Buttons -->
+      <button class="btn btn-success " ng-click="dashboard.open()">Open Queries</button>
+      <button class="btn btn-success " ng-click="dashboard.close()">Closed Queries</button>
+      <button class="btn btn-success " ng-click="dashboard.all()">All Queries</button>
+      <br>
+			<br><hr>
+    </div>
+	<!--query cards start  -->
+	<div ng-repeat="query in dashboard.queries| filter: search :strict">
+	<div class="center-block">
+	  <div  class="" ng-class="{cardBodyfirst: $first}">
+			<div class = "panel panel-primary">
+				<div class = "panel-heading">
+	        <b>{{query.title}}</b>
+				</div>
+				<div class = "panel-body">
+					{{query.details}}
+	      </div>
+	    <div  class="panel-footer">
+				<div class="center-block">
+		      <a ng-click="dashboard.deleteQuery(query.ticketNumber , $index)" class="btn btn-danger btn-sm">
+				  <span class="glyphicon glyphicon-trash" aria-hidden="true" ></span>    Delete</a>
+					<a class="btn  btn-primary btn-sm" href="#/query/{{query.ticketNumber}}">  <span class="glyphicon glyphicon-ok"></span>    View Query</a>
+	      <a class="btn  btn-success btn-sm" ng-click="dashboard.openclose(query.ticketNumber)">{{dashboard.getStatus($index)}}</a>
+	    </div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+	<!-- query card end -->
+</div>
+<script type='text/javascript'>
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem('firstLoad');
+  }
+})();
+
+</script>
+</section>
