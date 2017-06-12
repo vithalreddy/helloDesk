@@ -26,7 +26,7 @@ Lot more features to be added soon.
     b). A View to create a ticket. Get all the necessary information like name, email, phone number, Query title and Query details. ​File upload is optional.
     c). A View to view all queries raised by the person.
     d). A view to show the details of a particular query. It should include the original question as well as the answer from admin and person in form of a conversation (chat like UI). This view should also have the option to set the status of the ticket to ‘open’ or ‘closed’ depending on whether the query is resolved or not.
-    
+
    10). Ticket Resolution Panel - Admin end
     a). View to Display ticket by status - This should list all tickets received by the support system. There should be a drop down menu to filter through the status of ticket. Ticket can be of status ‘open’ or ‘closed’ depending on whether the query is resolved or not.
   b). A view to show the details of a particular query. It should include the original question as well as the answer from admin and person in form of a conversation (chat like UI). This view should also have the option to set the status of the ticket to ‘open’ or ‘closed’ depending on whether the query is resolved or not. The answer created here
@@ -66,6 +66,8 @@ MongoDB
   running project:
 ```
     Install all dependencies by : npm install and run node app.js
+
+    Update Email and Password in Query Controller
 
 ```
 ## Built With
